@@ -18,10 +18,13 @@
   --gray-800: #1f2937;
   --gray-900: #111827;
   --white: #ffffff;
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -33,6 +36,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--gray-800);
   background-color: var(--white);
+  overflow-x: hidden;
 }
 
 code {
@@ -43,22 +47,26 @@ code {
 h1, h2, h3, h4, h5, h6 {
   color: var(--gray-800);
   font-weight: 700;
+  transition: color 0.3s var(--transition-smooth);
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  transition: all 0.3s var(--transition-smooth);
 }
 
 button {
   cursor: pointer;
   border: none;
   outline: none;
+  transition: all 0.3s var(--transition-smooth);
 }
 
 img {
   max-width: 100%;
   height: auto;
+  transition: transform 0.3s var(--transition-smooth);
 }
 
 /* Gradient Text */
@@ -73,16 +81,75 @@ img {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 /* Section */
 .section {
-  padding: 80px 0;
+  padding: 100px 0;
+  position: relative;
+  transition: all 0.5s var(--transition-smooth);
+}
+
+/* Smooth Transitions for All Interactive Elements */
+input,
+textarea,
+select {
+  transition: all 0.3s var(--transition-smooth);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--blue-600);
+  outline-offset: 2px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--blue-600), var(--indigo-600));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--indigo-600), var(--blue-600));
+}
+
+/* Selection Color */
+::selection {
+  background-color: rgba(37, 99, 235, 0.2);
+  color: var(--gray-900);
+}
+
+::-moz-selection {
+  background-color: rgba(37, 99, 235, 0.2);
+  color: var(--gray-900);
 }
 
 @media (max-width: 768px) {
   .section {
     padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 50px 0;
+  }
+
+  .container {
+    padding: 0 16px;
   }
 }
