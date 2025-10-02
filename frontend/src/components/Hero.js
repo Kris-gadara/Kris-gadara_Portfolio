@@ -137,62 +137,25 @@ const Hero = () => {
               </motion.a>
             ))}
           </motion.div>
-
-          <motion.div
-            className="hero-cta"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4 }}
-          >
-            <Link
-              to="projects"
-              smooth={true}
-              duration={500}
-              offset={-80}
-              className="cta-button primary"
-            >
-              View My Work
-            </Link>
-            <Link
-              to="about"
-              smooth={true}
-              duration={500}
-              offset={-80}
-              className="cta-button secondary"
-            >
-              Learn More
-            </Link>
-          </motion.div>
         </motion.div>
 
         <motion.div
           className="hero-profile-card"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.9, x: 30 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          <div className="profile-card-inner">
-            <div className="profile-avatar">
-              <div className="avatar-placeholder">
-                KG
+          <div className="card-gradient-wrapper">
+            <div className="profile-card-inner">
+              <div className="profile-avatar">
+                <div className="avatar-placeholder">
+                  KG
+                </div>
               </div>
-            </div>
-            <div className="profile-info">
-              <h3>Kris Gadara</h3>
-              <p>Full Stack Developer</p>
-              <div className="profile-stats">
-                <div className="stat">
-                  <span className="stat-value">15+</span>
-                  <span className="stat-label">Projects</span>
-                </div>
-                <div className="stat">
-                  <span className="stat-value">8.31</span>
-                  <span className="stat-label">GPA</span>
-                </div>
-                <div className="stat">
-                  <span className="stat-value">5+</span>
-                  <span className="stat-label">Hackathons</span>
-                </div>
+              <div className="profile-info">
+                <h3>Full Stack Developer</h3>
+                <p className="university">CHARUSAT University</p>
+                <p className="education-detail">GPA: 8.31 • B.Tech IT</p>
               </div>
             </div>
           </div>
