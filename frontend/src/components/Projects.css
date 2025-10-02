@@ -14,20 +14,26 @@
   overflow: hidden;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   border: 2px solid var(--gray-200);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
 .project-card:hover {
   border-color: var(--blue-600);
   box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.2);
+  transform: translateY(-8px);
 }
 
 .project-image {
   height: 200px;
-  background: linear-gradient(135deg, var(--blue-600), var(--indigo-600));
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
 }
 
 .project-overlay {
@@ -36,12 +42,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.75);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-card:hover .project-overlay {
@@ -62,13 +68,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0.9);
+  opacity: 0;
+}
+
+.project-card:hover .project-link {
+  transform: scale(1);
+  opacity: 1;
 }
 
 .project-link:hover {
   background: var(--blue-600);
   color: white;
-  transform: scale(1.1);
+  transform: scale(1.1) translateY(-3px);
 }
 
 .project-content {
@@ -80,6 +93,11 @@
   font-weight: 700;
   color: var(--gray-800);
   margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .project-title {
+  color: var(--blue-600);
 }
 
 .project-description {
@@ -93,6 +111,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 16px;
 }
 
 .tech-badge {
@@ -103,10 +122,48 @@
   font-size: 12px;
   font-weight: 600;
   border: 1px solid rgba(37, 99, 235, 0.2);
+  transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+  background: linear-gradient(135deg, var(--blue-600), var(--indigo-600));
+  color: white;
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+.project-footer {
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.view-certifications-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--blue-600);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 4px 0;
+}
+
+.view-certifications-link:hover {
+  color: var(--indigo-600);
+  gap: 10px;
 }
 
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-content {
+    padding: 20px;
+  }
+
+  .project-image {
+    height: 180px;
   }
 }
