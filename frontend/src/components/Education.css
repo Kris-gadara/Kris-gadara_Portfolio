@@ -1,0 +1,98 @@
+.education {
+  background-color: white;
+}
+
+.education-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--gray-200);
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.education-card:hover {
+  border-color: var(--blue-600);
+  box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.2);
+}
+
+.education-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--blue-600), var(--indigo-600));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.education-content {
+  flex: 1;
+}
+
+.education-degree {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 12px;
+}
+
+.education-institute {
+  font-size: 18px;
+  color: var(--gray-600);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.education-gpa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(79, 70, 229, 0.1));
+  padding: 12px 24px;
+  border-radius: 10px;
+}
+
+.gpa-label {
+  font-size: 14px;
+  color: var(--gray-600);
+  font-weight: 600;
+}
+
+.gpa-value {
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--blue-600), var(--indigo-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 768px) {
+  .education-card {
+    flex-direction: column;
+    padding: 30px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .education-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .education-degree {
+    font-size: 20px;
+  }
+
+  .education-institute {
+    font-size: 16px;
+  }
+}
