@@ -1,9 +1,21 @@
 .footer {
-  background: linear-gradient(135deg, var(--blue-600), var(--indigo-600));
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
   color: white;
   padding: 60px 0 30px;
   position: relative;
   overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .footer-gradient {
@@ -25,7 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 32px;
   margin-bottom: 40px;
 }
 
@@ -37,11 +49,17 @@
   font-size: 32px;
   font-weight: 800;
   margin-bottom: 8px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+}
+
+.footer-logo:hover {
+  transform: scale(1.05);
 }
 
 .footer-tagline {
   font-size: 16px;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .footer-social {
@@ -53,13 +71,14 @@
   width: 50px;
   height: 50px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -67,6 +86,8 @@
   background: white;
   color: var(--blue-600);
   border-color: white;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.3);
 }
 
 .footer-bottom {
@@ -78,25 +99,58 @@
 .footer-copyright {
   font-size: 14px;
   margin-bottom: 8px;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .footer-built {
   font-size: 14px;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding: 40px 0 20px;
+    padding: 40px 0 24px;
   }
 
   .footer-logo {
     font-size: 28px;
   }
 
+  .footer-social {
+    gap: 12px;
+  }
+
   .footer-social-link {
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .footer-content {
+    gap: 28px;
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 32px 0 20px;
+  }
+
+  .footer-logo {
+    font-size: 26px;
+  }
+
+  .footer-tagline {
+    font-size: 15px;
+  }
+
+  .footer-social-link {
+    width: 44px;
+    height: 44px;
+  }
+
+  .footer-copyright,
+  .footer-built {
+    font-size: 13px;
   }
 }
