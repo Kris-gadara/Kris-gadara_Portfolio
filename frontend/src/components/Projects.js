@@ -150,6 +150,16 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
+                <div className="project-footer">
+                  <a
+                    href="https://www.linkedin.com/in/kris-gadara-1580b9343/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="view-certifications-link"
+                  >
+                    View Certifications on LinkedIn →
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}
