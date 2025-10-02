@@ -52,31 +52,6 @@ To begin my career as a Web Developer where I can apply my **front-end and back-
 
 ---
 
-## 📁 Project Structure
-
-/frontend/
-├── public/
-│ ├── index.html
-│ ├── manifest.json
-│ └── robots.txt
-├── src/
-│ ├── components/
-│ │ ├── Navbar.js & Navbar.css
-│ │ ├── Hero.js & Hero.css
-│ │ ├── About.js & About.css
-│ │ ├── Education.js & Education.css
-│ │ ├── Skills.js & Skills.css
-│ │ ├── Experience.js & Experience.css
-│ │ ├── Projects.js & Projects.css
-│ │ ├── Certifications.js & Certifications.css
-│ │ └── Footer.js & Footer.css
-│ ├── App.js
-│ ├── App.css
-│ ├── index.js
-│ └── index.css
-└── package.json
-
----
 
 ## 🚀 Installation
 
