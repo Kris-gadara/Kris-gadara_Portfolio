@@ -2,8 +2,6 @@
 
 A modern, responsive portfolio website built with **React**, **JavaScript**, and **CSS** to showcase my professional journey, skills, projects, and achievements.
 
-🌐 **Live Demo**: [https://krisgadara-portfolio.vercel.app/](https://krisgadara-portfolio.vercel.app/)
-
 ## 📋 Table of Contents
 
 - [About](#about)
