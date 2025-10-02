@@ -49,7 +49,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Hi, I'm
+            Hello, I'm
           </motion.div>
 
           <motion.h1
@@ -58,7 +58,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <span className="gradient-text">KRISKUMAR GADARA</span>
+            <span className="hero-name-first">Kris </span>
+            <span className="hero-name-last">Gadara</span>
           </motion.h1>
 
           <motion.p
@@ -67,7 +68,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
           >
-            Full Stack Web Developer
+            Full Stack Developer & IT Professional
           </motion.p>
 
           <motion.div
@@ -77,17 +78,46 @@ const Hero = () => {
             transition={{ delay: 0.8 }}
           >
             <p>
-              A motivated and fast learner, excited to begin my career as a Web Developer.
-              Eager to apply my skills in front-end and back-end technologies while
-              continuously learning and growing in a collaborative development environment.
+              Aspiring web developer skilled in HTML, CSS, JavaScript, and React.js, 
+              with a passion for creation responsive and user-friendly web applications. 
+              Eager to contribute to impactful projects while enhancing technical expertise.
             </p>
+          </motion.div>
+
+          <motion.div
+            className="hero-cta"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1 }}
+          >
+            <Link
+              to="projects"
+              smooth={true}
+              duration={500}
+              offset={-80}
+              className="cta-button primary"
+            >
+              View My Work
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+              </svg>
+            </Link>
+            <Link
+              to="about"
+              smooth={true}
+              duration={500}
+              offset={-80}
+              className="cta-button secondary"
+            >
+              Get In Touch
+            </Link>
           </motion.div>
 
           <motion.div
             className="hero-social"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
+            transition={{ delay: 1.2 }}
           >
             {socialLinks.map((social, index) => (
               <motion.a
@@ -96,11 +126,11 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
-                whileHover={{ scale: 1.1, y: -5 }}
+                whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 + index * 0.1 }}
+                transition={{ delay: 1.2 + index * 0.1 }}
                 aria-label={social.name}
               >
                 {social.icon}
