@@ -1,0 +1,248 @@
+/* ========================================
+   GLOBAL STYLES - Professional Portfolio
+   ======================================== */
+
+/* CSS Reset & Normalize */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  scroll-padding-top: 70px; /* Account for fixed navbar */
+}
+
+body {
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: var(--line-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Design Tokens */
+:root {
+  /* Layout */
+  --max-width: 1200px;
+  --container-padding: 24px;
+
+  /* Colors */
+  --white: #FFFFFF;
+  --offwhite: #F9FAFB;
+  --accent: #87CEEB;           /* Sky blue (metallic chic) */
+  --accent-dark: #4682B4;      /* Hover/darker accent */
+  --text: #333333;             /* Charcoal text */
+  --muted: #6B7280;            /* secondary text */
+  --neutral: #E5E7EB;
+
+  /* Elevation & radius */
+  --card-radius: 14px;
+  --button-radius: 12px;
+  --shadow-1: 0 6px 18px rgba(0,0,0,0.04);
+  --shadow-2: 0 16px 40px rgba(0,0,0,0.06);
+
+  /* Typography scale (desktop) */
+  --fs-h1: 3rem;         /* 48px */
+  --fs-h2: 1.75rem;      /* 28px */
+  --fs-body: 1rem;       /* 16px */
+  --line-height: 1.5;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Poppins", "Inter", sans-serif;
+  margin: 0;
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Utility Classes */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: var(--button-radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: all 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-decoration: none;
+}
+
+.btn.primary {
+  background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(135, 206, 235, 0.12);
+}
+
+.btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-2);
+}
+
+.btn.outline {
+  background: transparent;
+  border: 1.5px solid var(--neutral);
+  color: var(--text);
+}
+
+.btn.outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Card Styles */
+.card {
+  background: var(--white);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: var(--shadow-1);
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
+}
+
+/* Focus States for Accessibility */
+:focus-visible {
+  outline: 3px solid rgba(135, 206, 235, 0.2);
+  outline-offset: 2px;
+}
+
+/* Scroll Reveal Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  will-change: transform, opacity;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  animation: fadeUp 0.5s ease forwards;
+}
+
+/* Form Styles */
+input, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--neutral);
+  background: var(--white);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.18s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.12);
+  border-color: var(--accent);
+}
+
+/* Tech Pill Styles */
+.tech-pill {
+  border: 1px solid var(--neutral);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--text);
+  background: transparent;
+  transition: all 0.18s ease;
+}
+
+.tech-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 640px) {
+  :root {
+    --container-padding: 16px;
+    --fs-h1: 2.25rem;
+    --fs-h2: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 20px;
+  }
+}
+
+/* Smooth Transitions for All Interactive Elements */
+* {
+  transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+/* Selection Styles */
+::selection {
+  background-color: rgba(135, 206, 235, 0.2);
+  color: var(--text);
+}
+
+::-moz-selection {
+  background-color: rgba(135, 206, 235, 0.2);
+  color: var(--text);
+}

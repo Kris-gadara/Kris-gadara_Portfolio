@@ -1,229 +1,161 @@
-.navbar {
+/* ========================================
+   NAVBAR STYLES - Professional Header
+   ======================================== */
+
+.site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.95);
-  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+  transition: background 200ms ease, box-shadow 200ms ease;
   backdrop-filter: blur(8px);
-  transition: all var(--transition);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.navbar.scrolled {
-  background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: var(--shadow);
-  border-bottom: 1px solid var(--color-gray-200);
+.site-header.transparent {
+  background: transparent;
 }
 
-.navbar-container {
+.site-header.solid {
+  background: var(--white);
+  box-shadow: 0 6px 20px rgba(16, 24, 40, 0.06);
+}
+
+.header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  padding: 16px var(--container-padding);
+  min-height: 70px;
 }
 
-.navbar-logo {
+.logo {
+  font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--color-gray-900);
+  color: var(--text);
   text-decoration: none;
-  letter-spacing: -0.02em;
+  transition: color 0.18s ease;
 }
 
-.navbar-links {
+.logo:hover {
+  color: var(--accent);
+}
+
+.nav {
   display: flex;
-  gap: var(--space-8);
   align-items: center;
+  gap: 8px;
 }
 
 .nav-link {
-  font-size: 0.9375rem;
+  color: var(--text);
+  padding: 8px 12px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.18s ease, border-color 0.18s ease;
   font-weight: 500;
-  color: var(--color-gray-600);
+  font-size: 0.95rem;
   text-decoration: none;
-  padding: var(--space-2) var(--space-3);
-  border-radius: var(--border-radius-sm);
-  transition: all var(--transition);
 }
 
-.nav-link:hover {
-  color: var(--color-primary);
-  background-color: var(--color-gray-50);
-}
-
+.nav-link:hover,
 .nav-link.active {
-  color: var(--color-primary);
-  background-color: var(--color-gray-50);
-  font-weight: 600;
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar-logo {
-  font-size: 24px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.navbar-logo:hover {
-  transform: scale(1.03);
-}
-
-.navbar-menu {
-  display: flex;
-  gap: 32px;
-  align-items: center;
-}
-
-.nav-link {
-  color: var(--color-text);
-  font-weight: 500;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s var(--transition-smooth);
-  padding: var(--space-2) var(--space-4);
-  font-size: 15px;
-}
-
-.nav-link:hover {
-  color: var(--color-accent);
-  transform: translateY(-1px);
-}
-
-.nav-link.active {
-  color: var(--color-accent);
-}
-
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: var(--space-4);
-  right: var(--space-4);
-  height: 2px;
-  background-color: var(--color-accent);
-  border-radius: 2px;
-  animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-
-.mobile-menu-button {
+.nav-toggle {
   display: none;
-  background: transparent;
-  padding: 10px;
-  cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.mobile-menu-button:hover {
-  transform: scale(1.05);
-}
-
-.hamburger {
-  width: 26px;
-  height: 22px;
-  position: relative;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-.hamburger span {
+.nav-toggle span {
   width: 100%;
-  height: 3px;
-  background-color: var(--gray-800);
-  border-radius: 3px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 2px;
+  background: var(--text);
+  border-radius: 1px;
+  transition: all 0.3s ease;
+  transform-origin: center;
 }
 
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(7px, 7px);
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
-.hamburger.active span:nth-child(2) {
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
   opacity: 0;
-  transform: translateX(-10px);
+  transform: translateX(10px);
 }
 
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
 }
 
 .mobile-menu {
   display: none;
-  background-color: white;
-  padding: 24px 20px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-  border-top: 1px solid var(--gray-200);
+  background: var(--white);
+  border-top: 1px solid var(--neutral);
+  padding: 16px var(--container-padding);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-nav-link {
   display: block;
-  padding: 16px 20px;
-  color: var(--gray-700);
+  padding: 12px 0;
+  color: var(--text);
   font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 10px;
-  margin-bottom: 4px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--neutral);
+  transition: color 0.18s ease;
 }
 
 .mobile-nav-link:hover {
-  background-color: var(--gray-100);
-  color: var(--blue-600);
-  transform: translateX(8px);
+  color: var(--accent);
 }
 
+.mobile-nav-link:last-child {
+  border-bottom: none;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .navbar-menu {
+  .nav {
     display: none;
   }
 
-  .mobile-menu-button {
-    display: block;
+  .nav-toggle {
+    display: flex;
   }
 
   .mobile-menu {
     display: block;
   }
 
-  .navbar-logo {
-    font-size: 22px;
+  .header-inner {
+    padding: 12px var(--container-padding);
+    min-height: 60px;
+  }
+
+  .logo {
+    font-size: 1.25rem;
   }
 }
 
 @media (max-width: 480px) {
-  .navbar {
-    padding: 16px 0;
+  .header-inner {
+    padding: 10px var(--container-padding);
+    min-height: 56px;
   }
 
-  .navbar.scrolled {
-    padding: 12px 0;
-  }
-
-  .navbar-logo {
-    font-size: 20px;
-  }
-
-  .mobile-nav-link {
-    padding: 14px 16px;
-    font-size: 15px;
+  .logo {
+    font-size: 1.125rem;
   }
 }

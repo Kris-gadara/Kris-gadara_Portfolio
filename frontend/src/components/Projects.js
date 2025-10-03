@@ -84,7 +84,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="projects section">
+    <section id="projects" className="projects">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -108,19 +108,19 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: index * 0.05 }}
               whileHover={{ y: -8 }}
             >
-              <div className="project-image">
+              <div className="project-thumb">
                 <div className="project-icon">
                   <svg width="48" height="48" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
                 </div>
               </div>
-              <div className="project-content">
+              <div className="project-body">
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
-                <div className="project-tech">
+                <div className="tech-list">
                   {project.tech.map((tech, idx) => (
-                    <span key={idx} className="tech-badge">
+                    <span key={idx} className="tech-pill">
                       {tech}
                     </span>
                   ))}

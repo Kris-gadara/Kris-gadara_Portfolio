@@ -119,7 +119,7 @@ const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="certifications section">
+    <section id="certifications" className="certifications">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

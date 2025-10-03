@@ -34,7 +34,6 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <div className="footer-gradient"></div>
       <div className="container">
         <motion.div
           className="footer-content"

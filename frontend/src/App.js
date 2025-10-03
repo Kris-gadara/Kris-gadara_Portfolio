@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Navbar from './components/Navbar';
@@ -10,9 +10,16 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Certifications from './components/Certifications';
 import Footer from './components/Footer';
+import ScrollProgress from './components/ScrollProgress';
+import { initAnimations } from './utils/animations';
+import './styles/global.css';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    initAnimations();
+  }, []);
+
   return (
     <Router>
       <Helmet>
@@ -30,6 +37,7 @@ function App() {
         <Projects />
         <Certifications />
         <Footer />
+        <ScrollProgress />
       </div>
     </Router>
   );

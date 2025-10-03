@@ -4,7 +4,7 @@ import './Education.css';
 
 const Education = () => {
   return (
-    <section id="education" className="education section">
+    <section id="education" className="education">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

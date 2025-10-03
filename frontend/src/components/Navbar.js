@@ -28,22 +28,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <motion.nav
-      className={`navbar ${scrolled ? 'scrolled' : ''}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="navbar-container container">
-        <motion.div
-          className="navbar-logo"
-          whileHover={{ scale: 1.05 }}
-        >
-          <span className="gradient-text">Kris Gadara</span>
-        </motion.div>
-
-        {/* Desktop Menu */}
-        <div className="navbar-menu">
+    <header className={`site-header ${scrolled ? 'solid' : 'transparent'}`}>
+      <div className="container header-inner">
+        <a href="#home" className="logo">Kris Gadara</a>
+        
+        <nav className="nav">
           {navLinks.map((link) => (
             <Link
               key={link.id}
@@ -66,19 +55,17 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
-        </div>
+        </nav>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="mobile-menu-button"
+        <button 
+          className="nav-toggle" 
+          aria-controls="nav" 
+          aria-expanded={mobileMenuOpen}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
         >
-          <div className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
 
@@ -123,7 +110,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </header>
   );
 };
 
