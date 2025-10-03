@@ -23,7 +23,7 @@ const Navbar = () => {
       setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -51,9 +51,17 @@ const Navbar = () => {
               spy={true}
               smooth={true}
               offset={-80}
-              duration={500}
+              duration={800}
               className={`nav-link ${activeSection === link.id ? 'active' : ''}`}
               onSetActive={() => setActiveSection(link.id)}
+              onClick={() => {
+                setTimeout(() => {
+                  const element = document.getElementById(link.id);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }, 100);
+              }}
             >
               {link.label}
             </Link>
@@ -96,9 +104,17 @@ const Navbar = () => {
                   spy={true}
                   smooth={true}
                   offset={-80}
-                  duration={500}
+                  duration={800}
                   className="mobile-nav-link"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setTimeout(() => {
+                      const element = document.getElementById(link.id);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }, 100);
+                  }}
                 >
                   {link.label}
                 </Link>

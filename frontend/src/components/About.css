@@ -1,25 +1,30 @@
 .about {
-  background-color: var(--gray-50);
+  background-color: var(--color-off-white);
+  padding: var(--space-8) 0;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: var(--space-8);
+  max-width: var(--max-width);
+  margin: 0 auto var(--space-8);
+  padding: 0 var(--space-4);
 }
 
 .section-title {
+  font-family: var(--font-heading);
   font-size: 48px;
-  font-weight: 800;
-  margin-bottom: 16px;
-  color: var(--gray-800);
-  letter-spacing: -1px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  color: var(--color-text);
+  transition: color var(--transition);
 }
 
 .section-subtitle {
   font-size: 18px;
-  color: var(--gray-600);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--color-text);
+  opacity: 0.8;
+  transition: opacity var(--transition);
 }
 
 .about-content {
@@ -35,28 +40,26 @@
 }
 
 .objective-card, .contact-card, .soft-skills {
-  background: white;
-  padding: 32px;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  border: 2px solid var(--gray-200);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--color-white);
+  padding: var(--space-8);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-neutral);
+  transition: all var(--transition);
 }
 
 .objective-card:hover, .contact-card:hover, .soft-skills:hover {
-  border-color: var(--blue-600);
-  box-shadow: 0 12px 24px -4px rgba(37, 99, 235, 0.15);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
   transform: translateY(-4px);
 }
 
 .objective-card h3, .contact-card h3, .soft-skills h3 {
+  font-family: var(--font-heading);
   font-size: 24px;
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, var(--blue-600), var(--indigo-600));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: all 0.3s ease;
+  margin-bottom: var(--space-4);
+  color: var(--color-accent);
+  transition: color var(--transition);
 }
 
 .objective-card p {
@@ -72,19 +75,23 @@
 }
 
 .skill-item {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 10px;
+  background: var(--color-gray-50);
+  color: var(--color-gray-900);
+  padding: var(--space-2) var(--space-4);
+  border-radius: calc(var(--border-radius) / 2);
   text-align: center;
   font-weight: 600;
   font-size: 14px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--transition);
+  border: 1px solid var(--color-gray-200);
 }
 
 .skill-item:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 16px -4px rgba(59, 130, 246, 0.4);
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .contact-list {

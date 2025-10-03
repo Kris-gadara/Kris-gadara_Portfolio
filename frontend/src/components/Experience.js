@@ -121,7 +121,11 @@ const Experience = () => {
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   whileHover={{ y: -5 }}
                 >
-                  <div className="hackathon-icon">🏆</div>
+                  <div className="hackathon-icon">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  </div>
                   <h4 className="hackathon-name">{hackathon.name}</h4>
                   <p className="hackathon-year">{hackathon.year}</p>
                 </motion.div>
